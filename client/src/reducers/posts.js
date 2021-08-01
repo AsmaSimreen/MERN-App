@@ -1,9 +1,8 @@
-export default (posts = [], action) => {
+const reducers = (posts = [], action) => {
     switch (action.type) {
         case 'DELETE':
             return posts.filter((post) => post._id !== action.payload);
         case 'UPDATE':
-            return posts.map((post) => post._id === action.payload._id ? action.payload : post);
         case 'LIKE':
             return posts.map((post) => post._id === action.payload._id ? action.payload : post);
         case 'FETCH_ALL':
@@ -14,3 +13,4 @@ export default (posts = [], action) => {
             return posts;
     }
 }
+export default reducers;
